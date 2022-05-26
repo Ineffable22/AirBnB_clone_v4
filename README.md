@@ -179,7 +179,6 @@ Miguel Barrera -
 
 Four part of Airbnb:
 
-Third part of AirBnB:
 <p align="center">
 Miguel Grillo -
 <a href="https://github.com/Ineffable22">
