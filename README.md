@@ -159,7 +159,9 @@ Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://tw
 
 Second part of Airbnb: Joann Vuong
 
+
 Third part of AirBnB:
+
 <p align="center">
 Miguel Grillo -
 <a href="https://github.com/Ineffable22">
@@ -171,6 +173,24 @@ Miguel Grillo -
 Miguel Barrera -
 <a href="https://github.com/MiguelBarreraDev">
 <img src="https://img.shields.io/badge/Miguel-mainPage-blue">
+</a>
+</p>
+
+
+Four part of Airbnb:
+
+Third part of AirBnB:
+<p align="center">
+Miguel Grillo -
+<a href="https://github.com/Ineffable22">
+<img src="https://img.shields.io/badge/Miguel-mainPage-blue">
+</a>
+</p>
+
+<p align="center">
+Cristhian Apaza -
+<a href="https://github.com/cristhian1107">
+<img src="https://img.shields.io/badge/Cristhian-mainPage-blue">
 </a>
 </p>
 
