@@ -29,6 +29,10 @@
     line-height: 20px;
 }
 
+.amenities input {
+    margin-right: 10px;
+}
+
 .popover {
     list-style-type: none;
     display: none;
@@ -60,9 +64,6 @@ ul {
     padding-bottom: 20px;
 }
 
-li {
-}	
-
 h2 {
     font-size: 16px;
     padding-left: 30px;
@@ -81,7 +82,7 @@ h4 {
     font-weight: 400;
     margin-top: 5px;
     margin-bottom: 5px;
-    padding-left: 45px;
+    padding-left: 25px;
 }
 
 button {
