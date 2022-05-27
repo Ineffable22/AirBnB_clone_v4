@@ -2,21 +2,25 @@
 <html lang="en">
     <head>
         <title>AirBnB clone</title>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <link rel="stylesheet" href="../static/styles/4-common.css?{{ cache_id }}"/>
         <link rel="stylesheet" href="../static/styles/3-header.css?{{ cache_id }}"/>
         <link rel="stylesheet" href="../static/styles/3-footer.css?{{ cache_id }}"/>
         <link rel="stylesheet" href="../static/styles/6-filters.css?{{ cache_id }}"/>
         <link rel="stylesheet" href="../static/styles/8-places.css?{{ cache_id }}"/>
-	<script type="text/javascript" src="../static/scripts/1-hbnb.js?{{ cache_id }}"></script>
+	      <script type="text/javascript" src="../static/scripts/1-hbnb.js?{{ cache_id }}"></script>
     </head>
     <body>
         <header>
             <div id="header_logo"></div>
         </header>
         <div class="container">
+
+            <!-- TODO Section Filters  -->
             <section class="filters">
                 <button>Search</button>
+
+                <!-- !Filter by Locations -->
                 <div class="locations">
                     <h3>States</h3>
                     <h4>&nbsp;</h4>
@@ -33,6 +37,8 @@
                         {% endfor %}
                     </ul>
                 </div>
+
+                <!-- !Filter by Amenities -->
                 <div class="amenities">
                     <h3>Amenities</h3>
                     <h4>&nbsp;</h4>
@@ -43,6 +49,8 @@
                     </ul>
                 </div>
             </section>
+
+            <!-- TODO Section Places  -->
             <section class="places">
                 <h1>Places</h1>
                 {% for place in places | sort(attribute='name') %}
