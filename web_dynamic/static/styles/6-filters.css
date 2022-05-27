@@ -33,6 +33,10 @@
     margin-right: 10px;
 }
 
+.amenities li {
+    margin-left: 10px;
+}
+
 .popover {
     list-style-type: none;
     display: none;
