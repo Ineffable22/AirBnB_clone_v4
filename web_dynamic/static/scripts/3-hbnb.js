@@ -32,7 +32,7 @@ window.onload = function () {
     dataType: 'json',
     contentType: 'application/json'
   }).done(function (data) {
-      console.log(data);
+//      console.log(data);
       data.forEach(place => {
         $('section.places').append(
           '<article>' +
