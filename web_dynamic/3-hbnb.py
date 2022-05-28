@@ -9,13 +9,13 @@ import uuid
 app = Flask(__name__)
 
 
-@app.route('/2-hbnb', strict_slashes=False)
+@app.route('/3-hbnb', strict_slashes=False)
 def hbnb():
     """/hbnb: display a HTML page with render_template"""
     states = storage.all('State').values()
     amenities = storage.all('Amenity').values()
     places = storage.all('Place').values()
-    return render_template('2-hbnb.html',
+    return render_template('3-hbnb.html',
                            states=states,
                            amenities=amenities,
                            places=places,
