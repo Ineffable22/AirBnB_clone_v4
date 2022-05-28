@@ -25,45 +25,51 @@ window.onload = function () {
   // $.post('http://127.0.0.1:5001/api/v1/places_search/', JSON.stringify({}), function( data ) {
   //   console.log( data );
   // }, "json");
-  $.ajax({
-    url: 'http://127.0.0.1:5001/api/v1/places_search/',
-    type: 'POST',
-    data: JSON.stringify({}),
-    dataType: 'json',
-    contentType: 'application/json'
-  }).done(function (data) {
+  function showPlaces (amnts={}) {
+    $.ajax({
+      url: 'http://127.0.0.1:5001/api/v1/places_search/',
+      type: 'POST',
+      data: JSON.stringify({'amenities': amnts}),
+      dataType: 'json',
+      contentType: 'application/json'
+    }).done(function (data) {
       console.log(data);
       data.forEach(place => {
-        $('section.places').append(
+	$('section.places').append(
           '<article>' +
             '<div class="headline">' +
-              '<h2>' + place.name + '</h2>' +
-              '<div class="price_by_night"> $ ' + place.price_by_night + '</div>' +
+            '<h2>' + place.name + '</h2>' +
+            '<div class="price_by_night"> $ ' + place.price_by_night + '</div>' +
             '</div>' +
             '<div class="information">' +
-              '<div class="max_guest">' +
-                '<div class="guest_icon"></div>' +
-                '<p>' + place.max_guest + ' Guest</p>' +
-              '</div>' +
-              '<div class="number_rooms">' +
-                '<div class="bed_icon"></div>' +
-                '<p>' + place.number_rooms + ' Room</p>' +
-              '</div>' +
-              '<div class="number_bathrooms">' +
-                '<div class="bath_icon"></div>' +
-                '<p>' + place.number_bathrooms + ' Bathroom</p>' +
-              '</div>' +
+            '<div class="max_guest">' +
+            '<div class="guest_icon"></div>' +
+            '<p>' + place.max_guest + ' Guest</p>' +
+            '</div>' +
+            '<div class="number_rooms">' +
+            '<div class="bed_icon"></div>' +
+            '<p>' + place.number_rooms + ' Room</p>' +
+            '</div>' +
+            '<div class="number_bathrooms">' +
+            '<div class="bath_icon"></div>' +
+            '<p>' + place.number_bathrooms + ' Bathroom</p>' +
+            '</div>' +
             '</div>' +
             '<div class="user"><b>Owner</b>: John Lennon</div>' +
             '<div class="description">' + place.description + '</div>' +
-          '</article>'
-          );
-        });
+            '</article>'
+	);
+      });
     });
-  
-  function searchPlaces() {
-    
-  }
+  };
+
+  $('section button').click(function () {
+//    debugger
+    const amnts = Object.keys(amenities)
+    showPlaces(amnts);
+//    if (amnts.length > 0) $(".places").load(location.href + ".places");
+    if (amnts.length > 0) $(".places").load(" .places > *");
+  });
 }
 //  var textinputs = document.querySelectorAll(".popover li input[type=checkbox]")
 //  console.log(textinputs)
