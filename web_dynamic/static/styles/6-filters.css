@@ -39,7 +39,7 @@ input {
 
 .popover {
     list-style-type: none;
-    top: 5px;
+    top: -15px;
     display: none;
     position: relative;
     background-color: #FAFAFA;
@@ -92,10 +92,13 @@ h3 {
     font-weight: 400;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.filters h4 .display {
     display: inline;
 }
 
-#h4_amenities, #h4_states{
+.h4_amenities, .h4_states{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
