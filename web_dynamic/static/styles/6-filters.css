@@ -29,7 +29,7 @@
     line-height: 20px;
 }
 
-.amenities input {
+input {
     margin-right: 10px;
 }
 
@@ -39,7 +39,9 @@
 
 .popover {
     list-style-type: none;
+    top: 5px;
     display: none;
+    position: relative;
     background-color: #FAFAFA;
     width: 100%;
 
@@ -55,11 +57,11 @@
 }
 
 .locations:hover .popover {
-    display: inline-block;
+    display: block;
 }
 
 .amenities:hover .popover {
-    display: inline-block;
+    display: block;
 }
 
 ul {
@@ -68,10 +70,11 @@ ul {
     padding-bottom: 20px;
 }
 
-h2 {
+
+.filters h2 {
     font-size: 16px;
-    padding-left: 30px;
-    margin: 0px;
+    margin: 0;
+    display: inline;
 }
 
 h3 {
@@ -81,19 +84,23 @@ h3 {
     padding-left: 45px;
 }
 
-h4 {
+.filters li ul li {
+    padding-left: 45px;
+}
+.filters h4 {
     font-size: 14px;
     font-weight: 400;
     margin-top: 5px;
     margin-bottom: 5px;
-    padding-left: 45px;
+    display: inline;
 }
 
-.h4_amenities {
+#h4_amenities, #h4_states{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     max-width: 500px;
+    margin-left: 45px;
 }
 
 button {
