@@ -24,7 +24,7 @@ window.onload = function () {
     $('div.locations > h4').text(Object.keys(states).map(function(k){return states[k]}).join(", "));
  });
   
- $('.locations li > ul > input[type="checkbox"]').change(function() {
+ $('.locations li > ul > li > input[type="checkbox"]').change(function() {
     if (this.checked) {
       cities[$(this).data('id')] = ($(this).data('name'));
       console.log(Object.keys(cities))
