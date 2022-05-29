@@ -16,6 +16,7 @@ window.onload = function () {
     // console.log(data.status)
     if (data.status === 'OK'){
       $('#api_status').addClass('available')
+      showPlaces()
     }
     else {
       $('#api_status').removeClass('available')
@@ -29,7 +30,7 @@ window.onload = function () {
     $.ajax({
       url: 'http://127.0.0.1:5001/api/v1/places_search/',
       type: 'POST',
-      data: JSON.stringify({'amenities': amnts}),
+      data: JSON.stringify(amnts),
       dataType: 'json',
       contentType: 'application/json'
     }).done(function (data) {
@@ -66,7 +67,7 @@ window.onload = function () {
   $('section button').click(function () {
 //    debugger
     const amnts = Object.keys(amenities)
-    showPlaces(amnts);
+    showPlaces({'amenities': amnts});
 //    if (amnts.length > 0) $(".places").load(location.href + ".places");
     if (amnts.length > 0) $(".places").load(" .places > *");
   });
