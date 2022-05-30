@@ -27,7 +27,6 @@ window.onload = function () {
  $('.locations li > ul > input[type="checkbox"]').change(function() {
     if (this.checked) {
       cities[$(this).data('id')] = ($(this).data('name'));
-      console.log(Object.keys(cities))
       locations[$(this).data('id')] = ($(this).data('name'));
     } else {
       delete cities[($(this).data('id'))];
@@ -37,8 +36,6 @@ window.onload = function () {
   });
 
   $.get('http://127.0.0.1:5001/api/v1/status/', function (data, status) {
-    // console.log(status)
-    // console.log(data.status)
     if (data.status === 'OK'){
       $('#api_status').addClass('available')
       showPlaces()
@@ -48,9 +45,6 @@ window.onload = function () {
     }
   });
 
-  // $.post('http://127.0.0.1:5001/api/v1/places_search/', JSON.stringify({}), function( data ) {
-  //   console.log( data );
-  // }, "json");
   function showPlaces (amnts={}) {
     $.ajax({
       url: 'http://127.0.0.1:5001/api/v1/places_search/',
@@ -59,7 +53,6 @@ window.onload = function () {
       dataType: 'json',
       contentType: 'application/json'
     }).done(function (data) {
-      console.log(data);
       data.forEach(place => {
 	$('section.places').append(
           '<article>' +
@@ -83,12 +76,28 @@ window.onload = function () {
             '</div>' +
             '<div class="user"><b>Owner</b>: John Lennon</div>' +
             '<div class="description">' + place.description + '</div>' +
+	    '<div class="reviews">' +
+	    '<h2>Reviews</h2><span class="handle-reviews" data-name="' + place.id + '">show</span>' + 
+            '<ul id="' + place.id + '" class="li_review">' +
+	    '</ul>' +
+	    '</div>' +
             '</article>'
 	);
       });
     });
   };
 
+
+  $(document).on('click', '.handle-reviews', function () {
+    $.get(`http://127.0.0.1:5001/api/v1/places/${$(this).data('name')}/reviews`, function (data, status) {
+      if (status == 'success')
+	data.forEach(review => {
+	  $(`#${review.place_id}`).append(
+	    `<li>${review.text}</li>`)
+      });
+    });
+  });
+  
   $('section button').click(function () {
 //    debugger
     const amnts = Object.keys(amenities)
