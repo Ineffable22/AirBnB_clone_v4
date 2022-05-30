@@ -5,17 +5,18 @@ from models import storage
 from models.state import State
 from models.amenity import Amenity
 from models.place import Place
+from models.review import Review
 import uuid
 app = Flask(__name__)
 
 
-@app.route('/100-hbnb', strict_slashes=False)
+@app.route('/101-hbnb', strict_slashes=False)
 def hbnb():
     """/hbnb: display a HTML page with render_template"""
     states = storage.all('State').values()
     amenities = storage.all('Amenity').values()
     places = storage.all('Place').values()
-    return render_template('100-hbnb.html',
+    return render_template('101-hbnb.html',
                            states=states,
                            amenities=amenities,
                            places=places,
