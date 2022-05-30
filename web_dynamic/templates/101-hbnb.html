@@ -29,7 +29,9 @@
                         <li><input type="checkbox" data-id={{ state.id|e }} data-name={{ state.name|e }}><h2>{{ state.name|e }}</h2>
                             <ul>
                                 {% for city in state.cities | sort(attribute='name') %}
-                                <li><input type="checkbox" data-id={{ city.id|e }} data-name={{ city.name|e }}><h4>{{ city.name|e }}</h4></li>
+                                <li>
+                                  <input type="checkbox" data-id={{ city.id|e }} data-name={{ city.name|e }}><h4 class="city_name">{{ city.name|e }}</h4>
+                                </li>
                                 {% endfor %}
                             </ul>
                         </li>
