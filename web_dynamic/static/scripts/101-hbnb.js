@@ -87,17 +87,21 @@ window.onload = function () {
     });
   };
   $(document).on('click', '.handle-reviews', function () {
+//    debugger
+    console.log(this)
     if ($(this).hasClass('used')) {
-      $('.remove-li').remove();
+      $(`#${$(this).data('name')} > li`).remove();
+      $(`#${$(this).data('name')} > br`).remove();
+      $(this).removeClass("used");
     } else {
       $.get(`http://127.0.0.1:5001/api/v1/places/${$(this).data('name')}/reviews`, function (data, status) {
 	if (status == 'success')
 	  data.forEach(review => {
 	    $(`#${review.place_id}`).append(
-	      `<li class="remove-li">${review.text}</li>`)
+	      `<li class="remove-li">${review.text}</li><br>`)
 	  });
-	$(this).addClass('used');
       });
+      $(this).addClass('used');
     }
   });
   
