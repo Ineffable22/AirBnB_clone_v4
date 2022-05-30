@@ -78,7 +78,7 @@ window.onload = function () {
             '<div class="description">' + place.description + '</div>' +
 	    '<div class="reviews">' +
 	    '<h2>Reviews</h2><span class="handle-reviews" data-name="' + place.id + '">show</span>' + 
-            '<ul id="' + place.id + '" class="li_review">' +
+            '<ul id="' + place.id + '">' +
 	    '</ul>' +
 	    '</div>' +
             '</article>'
@@ -86,16 +86,19 @@ window.onload = function () {
       });
     });
   };
-
-
   $(document).on('click', '.handle-reviews', function () {
-    $.get(`http://127.0.0.1:5001/api/v1/places/${$(this).data('name')}/reviews`, function (data, status) {
-      if (status == 'success')
-	data.forEach(review => {
-	  $(`#${review.place_id}`).append(
-	    `<li>${review.text}</li>`)
+    if ($(this).hasClass('used')) {
+      $('.remove-li').remove();
+    } else {
+      $.get(`http://127.0.0.1:5001/api/v1/places/${$(this).data('name')}/reviews`, function (data, status) {
+	if (status == 'success')
+	  data.forEach(review => {
+	    $(`#${review.place_id}`).append(
+	      `<li class="remove-li">${review.text}</li>`)
+	  });
+	$(this).addClass('used');
       });
-    });
+    }
   });
   
   $('section button').click(function () {
